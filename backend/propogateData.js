@@ -32,10 +32,10 @@ function generateDummyData() {
     }
     return data;
 }
-async function ru() {
+async function ru(collectionname) {
     try {
         const database = client.db("sample_mflix");
-        const waterDep = database.collection("property_dep");
+        const waterDep = database.collection(collectionname);
         const data = [];
         for (let i = 0; i < 25; i++) {
             data.push(generateDummyData());
@@ -47,4 +47,10 @@ async function ru() {
         await client.close();
     }
 }
-ru();
+async function run() {
+    await ru("waterTaxReceipts");
+    await ru("propertyTaxReceipts");
+    await ru("garbageTaxReceipts");
+}
+run();
+
