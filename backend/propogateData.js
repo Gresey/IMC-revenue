@@ -18,10 +18,28 @@ function getRandomName() {
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+function generateUniqueId(firstName, surname) {
+    if (!firstName || !surname) {
+        throw new Error('First name or surname is missing');
+    }
+    const lowerFirstName = firstName.toLowerCase();
+    const lowerSurname = surname.toLowerCase();
+
+    const currentDate = new Date();
+    const minute = String(currentDate.getMinutes()).padStart(2, '0');
+    const second = String(currentDate.getSeconds()).padStart(2, '0');
+    const millisecond = String(currentDate.getMilliseconds()).padStart(3, '0');
+
+    return `${lowerFirstName.split(' ')[0]}_${lowerSurname.split(' ').pop()}_${minute}${second}${millisecond}`;
+}
 function generateDummyData() {
+    const { firstName, surname } = getRandomName();
     const ranNumber = getRandomNumber(5, 8);
-    data = {
-        name: getRandomName(),
+    const uniqueId = generateUniqueId(firstName, surname);
+
+    const data = {
+        uid: uniqueId, 
+        name: `${firstName} ${surname}`,
         prev_bills: {},
         fees: getRandomNumber(100, 150),
         past_due: getRandomNumber(0, 95),
