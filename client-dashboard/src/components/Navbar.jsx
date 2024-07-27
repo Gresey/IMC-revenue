@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { auth } from './firebaseConfig'; // Import Firebase auth
+import { auth } from './firebaseConfig'; 
+import logo from '../assets/logo.png'; 
 
 export default function Navbar() {
     const [user, setUser] = useState(null);
@@ -14,8 +15,13 @@ export default function Navbar() {
 
     return (
         <div>
-            <div className="navbar bg-base-100">
-                <div className="navbar-start">
+            <div className="navbar bg-gradient-to-br from-purple-400 via-purple-210 to-blue-400 text-white h-16 flex items-center">
+                <div className="navbar-start flex items-center">
+                    <img 
+                        src={logo} 
+                        alt="Logo" 
+                        className="h-12 w-auto mr-2" 
+                    />
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
                             <svg
@@ -33,17 +39,18 @@ export default function Navbar() {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li><Link to="/whatsapp-registration">WhatsApp Registration</Link></li>
-                            <li><Link to="/view-receipts">View Receipts</Link></li>
-                            <li><Link to="/payments">Payments</Link></li>
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow blue">
+                           <li className="text-black"><Link to="/whatsapp-registration">WhatsApp Registration</Link></li>
+    <li className="text-black"><Link to="/view-receipts">View Receipts</Link></li>
+    <li className="text-black"><Link to="/payments">Payments</Link></li>
+    <li className="text-black"><Link to="/AboutPage">About Page</Link></li>
                         </ul>
                     </div>
                 </div>
                 <div className="navbar-center">
                     <Link to="/" className="btn btn-ghost text-xl">IMC Indore</Link>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end flex items-center">
                     {user ? (
                         <div className="flex items-center">
                             <img

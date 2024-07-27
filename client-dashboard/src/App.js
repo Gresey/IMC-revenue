@@ -5,6 +5,7 @@ import WhatsappRegistration from './components/pages/WhatsappRegistration';
 import ViewReceipts from './components/pages/ViewReceipts';
 import Payments from './components/pages/Payments';
 import Home from './components/Home';
+import AboutPage from './components/pages/AboutPage';
 import WaterTax from './components/pages/tax/WaterTax';
 import PropertyTax from './components/pages/tax/PropertyTax';
 import GarbageTax from './components/pages/tax/GarbageTax';
@@ -38,6 +39,7 @@ function App() {
                         <Route path="/whatsapp-registration" element={<WhatsappRegistration />} />
                         <Route path="/view-receipts" element={<ViewReceipts />} />
                         <Route path="/payments" element={<Payments />} />
+                        <Route path="/AboutPage" element={<AboutPage />} />
                         {/* Add other routes as needed */}
                     </Routes>
                 </>
