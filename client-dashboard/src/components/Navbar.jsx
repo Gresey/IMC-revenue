@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from './firebaseConfig'; // Import Firebase auth
 
 export default function Navbar() {
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            setUser(user);
+        });
+        return unsubscribe;
+    }, []);
+
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -33,7 +43,26 @@ export default function Navbar() {
                 <div className="navbar-center">
                     <Link to="/" className="btn btn-ghost text-xl">IMC Indore</Link>
                 </div>
-                
+                <div className="navbar-end">
+                    {user ? (
+                        <div className="flex items-center">
+                            <img
+                                src={user.photoURL}
+                                alt={user.displayName}
+                                className="w-8 h-8 rounded-full mr-2"
+                            />
+                            <span className="mr-4">{user.displayName}</span>
+                            <button
+                                className="btn btn-ghost"
+                                onClick={() => auth.signOut()}
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    ) : (
+                        <Link to="/login" className="btn btn-ghost">Login</Link>
+                    )}
+                </div>
             </div>
         </div>
     );
