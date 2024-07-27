@@ -13,7 +13,7 @@ export default function Home() {
           <div className="max-w-md">
             <h1 className="mb-5 text-7xl font-bold">IMC Indore</h1>
             <p className="mb-5">
-            A sustainable future for Indore. Stay updated, pay taxes, and access services seamlessly.
+              A sustainable future for Indore. Stay updated, pay taxes, and access services seamlessly.
             </p>
           </div>
         </div>

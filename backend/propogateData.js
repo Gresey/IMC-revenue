@@ -52,8 +52,8 @@ function generateDummyData() {
 }
 async function ru(collectionname) {
     try {
-        const database = client.db("sample_mflix");
-        const waterDep = database.collection(collectionname);
+        const database = client.db("imc");
+        const waterDep = database.collection("garbageTax");
         const data = [];
         for (let i = 0; i < 25; i++) {
             data.push(generateDummyData());
