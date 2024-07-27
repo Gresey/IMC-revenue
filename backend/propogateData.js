@@ -77,6 +77,14 @@ function generateDummyData() {
 }
 async function ru() {
     try {
+<<<<<<< HEAD
+        const database = client.db("imc");
+        const waterDep = database.collection("garbageTax");
+        const data = [];
+        for (let i = 0; i < 25; i++) {
+            data.push(generateDummyData());
+        }
+=======
         for (let i = 0; i < 19; i++) {
             const database = client.db("imc");
             const waterDep = database.collection("waterTax");
@@ -89,6 +97,7 @@ async function ru() {
             console.log(`${result1.insertedCount} records1 inserted`);
             console.log(`${result2.insertedCount} records2 inserted`);
             console.log(`${result3.insertedCount} records3 inserted`);
+>>>>>>> a05ee3778b22ae465c769b5162b7b3f34cc0955c
 
         }
     } catch {

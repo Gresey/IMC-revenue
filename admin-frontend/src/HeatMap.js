@@ -197,6 +197,9 @@ import "./HeatMap.css";
 class HeatMap extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      selectedWard: null,
+    };
     this.mapRef = React.createRef();
     this.heatLayerRef = null;
     this.map = null;
@@ -286,6 +289,7 @@ class HeatMap extends Component {
             "Total Revenue: " +
             wardData.info.totalrevenue;
           L.popup().setLatLng(latlng).setContent(popupContent).openOn(this.map);
+          this.setState({ selectedWard: wardData });
         } else {
           console.log(latlng);
         }
@@ -344,13 +348,46 @@ class HeatMap extends Component {
     }
   };
 
+  postWardNumber = async (data) => {
+    try {
+      const response = await fetch("/api/wardNumber", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      const responseData = await response.json();
+      console.log("Response from POST request:", responseData);
+    } catch (error) {
+      console.error("Error posting the ward number:", error);
+    }
+  };
+
+  handleButtonClick = () => {
+    const { selectedWard } = this.state;
+    if (selectedWard) {
+      this.postWardNumber({ wardNo: selectedWard.name });
+    } else {
+      console.log("No ward selected");
+    }
+  };
+
   render() {
     return (
-      <div
-        ref={this.mapRef}
-        id="map"
-        style={{ height: "600px", width: "100%" }}
-      />
+      <div>
+        <div
+          ref={this.mapRef}
+          id="map"
+          style={{ height: "600px", width: "100%" }}
+        />
+        <button onClick={this.handleButtonClick} style={{ marginTop: "10px" }}>
+          Post Ward Number
+        </button>
+      </div>
     );
   }
 }

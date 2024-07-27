@@ -20,7 +20,7 @@ export default function WhatsappRegistration() {
 
     try {
       const response = await axios.post(
-        "https://56d1-2401-4900-56a9-5d32-31d0-ffba-cf89-e17c.ngrok-free.app/send-otp",
+        "https://0ca9-2401-4900-56a9-5d32-31d0-ffba-cf89-e17c.ngrok-free.app/send-otp",
         userData,
         {
           headers: {
@@ -55,7 +55,7 @@ export default function WhatsappRegistration() {
 
     try {
       const response = await axios.post(
-        "https://56d1-2401-4900-56a9-5d32-31d0-ffba-cf89-e17c.ngrok-free.app/verify-otp",
+        "https://0ca9-2401-4900-56a9-5d32-31d0-ffba-cf89-e17c.ngrok-free.app/verify-otp",
         otpData,
         {
           headers: {

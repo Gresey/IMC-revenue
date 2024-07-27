@@ -3,9 +3,9 @@ import PaymentCard from '../PaymentCard';
 
 export default function Payments() {
     const paymentOptions = [
-        { title: 'Water Tax', imageUrl: 'https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp', redirectUrl: '/payment/water-tax' },
-        { title: 'Property Tax', imageUrl: 'https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp', redirectUrl: '/payment/property-tax' },
-        { title: 'Garbage Tax', imageUrl: 'https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp', redirectUrl: '/payment/garbage-tax' },
+        { title: 'Water Tax', imageUrl: 'https://images.pexels.com/photos/67184/pexels-photo-67184.jpeg', redirectUrl: '/payment/water-tax' },
+        { title: 'Property Tax', imageUrl: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg', redirectUrl: '/payment/property-tax' },
+        { title: 'Garbage Tax', imageUrl: 'https://images.pexels.com/photos/2382894/pexels-photo-2382894.jpeg', redirectUrl: '/payment/garbage-tax' },
     ];
 
     return (
