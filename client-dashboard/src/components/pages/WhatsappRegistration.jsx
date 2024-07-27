@@ -113,7 +113,7 @@ export default function WhatsappRegistration() {
           </div>
           {!isOtpSent ? (
             <div className="form-control mt-6">
-              <button className="btn btn-primary" onClick={handleGetOtp}>
+              <button className="btn bg-purple-500" onClick={handleGetOtp}>
                 Get OTP
               </button>
             </div>
