@@ -29,7 +29,6 @@ export default function WhatsappRegistration() {
         }
       );
 
-      // Optionally, handle the response data
       console.log(response.data);
       setIsOtpSent(true);
       toast.success("OTP sent successfully!", {
@@ -65,7 +64,6 @@ export default function WhatsappRegistration() {
         }
       );
 
-      // Optionally, handle the response data
       console.log("done");
       console.log(response.data);
       toast.success("OTP Verified Successfully!", {
@@ -84,67 +82,63 @@ export default function WhatsappRegistration() {
   };
 
   return (
-    <div>
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form className="card-body">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="name"
-                  className="input input-bordered"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">WhatsApp Number</span>
-                </label>
-                <input
-                  type="number"
-                  placeholder="number"
-                  className="input input-bordered"
-                  value={number}
-                  onChange={(e) => setNumber(e.target.value)}
-                  required
-                />
-              </div>
-              {!isOtpSent ? (
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary" onClick={handleGetOtp}>
-                    Get Otp
-                  </button>
-                </div>
-              ) : (
-                <div className="form-control mt-6">
-                  <label className="label">
-                    <span className="label-text">OTP</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Enter OTP"
-                    className="input input-bordered"
-                    value={otp}
-                    onChange={(e) => setOtp(e.target.value)}
-                    required
-                  />
-                  <button
-                    className="btn btn-primary mt-4"
-                    onClick={handleSubmitOtp}
-                  >
-                    Submit
-                  </button>
-                </div>
-              )}
-            </form>
+    <div className="min-h-screen  flex bg-gradient-to-br from-purple-400 via-purple-300 to-blue-400 text-white items-center justify-center">
+      <div className="card bg-base-100 w-full max-w-md shadow-2xl ">
+        <form className="card-body">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Name</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Name"
+              className="input input-bordered"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
           </div>
-        </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">WhatsApp Number</span>
+            </label>
+            <input
+              type="number"
+              placeholder="Number"
+              className="input input-bordered"
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
+              required
+            />
+          </div>
+          {!isOtpSent ? (
+            <div className="form-control mt-6">
+              <button className="btn btn-primary" onClick={handleGetOtp}>
+                Get OTP
+              </button>
+            </div>
+          ) : (
+            <div className="form-control mt-6">
+              <label className="label">
+                <span className="label-text">OTP</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter OTP"
+                className="input input-bordered"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+                required
+              />
+              <button
+                className="btn btn-primary mt-4"
+                onClick={handleSubmitOtp}
+              >
+                Submit
+              </button>
+            </div>
+          )}
+        </form>
       </div>
       <Toaster position="top-center" />
     </div>
