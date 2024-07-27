@@ -8,7 +8,7 @@ const port = 5000; // Ensure this matches your frontend
 
 const accountSid = process.env.TWILLIO_SID;
 const authToken = process.env.TWILLIO_TOKEN;
-const client = twilio(accountSid, authToken);
+const client = require('twilio')(accountSid, authToken);
 
 app.use(express.json());
 app.use(cors());
@@ -21,6 +21,19 @@ function generateOTP() {
     console.log(`Generated OTP: ${token}`);
     return token;
 }
+
+const sendWhatsAppMessage = async (to, body) => {
+    try {
+        const message = await client.messages.create({
+            body: body, // Message body
+            from: 'whatsapp:+14155238886', // From a valid Twilio WhatsApp number
+            to: `whatsapp:${to}` // The recipient's WhatsApp number
+        });
+        console.log('Message sent:', message.sid);
+    } catch (error) {
+        console.error('Error sending message:', error);
+    }
+};
 
 app.post('/send-otp', (req, res) => {
     const { name, phoneNumber } = req.body;
@@ -48,6 +61,8 @@ app.post('/send-otp', (req, res) => {
             console.error(error);
             res.status(500).send('Failed to send message');
         });
+
+    sendWhatsAppMessage('+91' + phoneNumber, `Hello ${name}, \n This is an automated message from IMC for your otp if ${otp}.`);
 });
 
 app.post('/verify-otp', (req, res) => {
