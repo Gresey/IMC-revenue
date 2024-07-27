@@ -12,6 +12,7 @@ import GarbageTax from './components/pages/tax/GarbageTax';
 import Login from './components/pages/Login';
 import { ToastContainer } from 'react-toastify';
 import { auth } from './components/firebaseConfig';
+import AdminPage from './components/pages/admin/AdminPage';
 // import ChatbotComponent from './components/chatbot/ChatbotComponent';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
                         <Route path="/whatsapp-registration" element={<WhatsappRegistration />} />
                         <Route path="/view-receipts" element={<ViewReceipts />} />
                         <Route path="/payments" element={<Payments />} />
+                        <Route path="/admin" element={<AdminPage/>} />
                         <Route path="/AboutPage" element={<AboutPage />} />
                         {/* Add other routes as needed */}
                     </Routes>
