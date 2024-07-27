@@ -37,6 +37,7 @@ export default function Navbar() {
                             <li><Link to="/whatsapp-registration">WhatsApp Registration</Link></li>
                             <li><Link to="/view-receipts">View Receipts</Link></li>
                             <li><Link to="/payments">Payments</Link></li>
+                            <li><Link to="/admin">Admin Dashboard</Link></li>
                         </ul>
                     </div>
                 </div>
