@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from 'react-router-dom';
 
 export default function WhatsappRegistration() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [otp, setOtp] = useState("");
   const [isOtpSent, setIsOtpSent] = useState(false);
+  const navigate = useNavigate();
 
   const handleGetOtp = async (e) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ export default function WhatsappRegistration() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/send-otp",
+        "https://56d1-2401-4900-56a9-5d32-31d0-ffba-cf89-e17c.ngrok-free.app/send-otp",
         userData,
         {
           headers: {
@@ -32,8 +33,7 @@ export default function WhatsappRegistration() {
       console.log(response.data);
       setIsOtpSent(true);
       toast.success("OTP sent successfully!", {
-        autoClose: 3000,
-        closeOnClick: true,
+        duration: 3000,
       });
     } catch (error) {
       console.error(
@@ -41,8 +41,7 @@ export default function WhatsappRegistration() {
         error.response ? error.response.data : error.message
       );
       toast.error("Failed to send OTP!", {
-        autoClose: 3000,
-        closeOnClick: true,
+        duration: 3000,
       });
     }
   };
@@ -57,7 +56,7 @@ export default function WhatsappRegistration() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/verify-otp",
+        "https://56d1-2401-4900-56a9-5d32-31d0-ffba-cf89-e17c.ngrok-free.app/verify-otp",
         otpData,
         {
           headers: {
@@ -70,17 +69,16 @@ export default function WhatsappRegistration() {
       console.log("done");
       console.log(response.data);
       toast.success("OTP Verified Successfully!", {
-        autoClose: 3000,
-        closeOnClick: true,
+        duration: 3000,
       });
+      navigate("/");
     } catch (error) {
       console.error(
         "Error:",
         error.response ? error.response.data : error.message
       );
       toast.error("Failed to verify OTP!", {
-        autoClose: 3000,
-        closeOnClick: true,
+        duration: 3000,
       });
     }
   };
@@ -148,17 +146,7 @@ export default function WhatsappRegistration() {
           </div>
         </div>
       </div>
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={true}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+      <Toaster position="top-center" />
     </div>
   );
 }
