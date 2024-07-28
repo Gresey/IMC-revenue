@@ -13,7 +13,6 @@ class GetData extends Component {
       }
       const data = await response.json();
       this.props.onDataFetch(data); // Pass the fetched data to the callback function
-
       // Assuming ward number is in the data
       const wardNumber = data.wardNo; // Adjust this based on your data structure
       this.postWardNumber({ wardNo: wardNumber });
