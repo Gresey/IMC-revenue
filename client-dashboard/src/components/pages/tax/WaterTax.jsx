@@ -38,7 +38,7 @@ export default function WaterTax() {
                 <h2 className="text-2xl mt-4">UID: {uid}</h2>
                 <h2 className="text-2xl mt-4">Amount: ₹{amount}</h2>
                 <div className="mt-6">
-                    <button type="button" className="btn btn-primary" onClick={handlePayment}>Pay Now</button>
+                    <button type="button" className="btn bg-purple-600 text-white" onClick={handlePayment}>Pay Now</button>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
     "coords": [22.719784060261762, 75.85593361116833],
     "intensity": 0.53,
     "name": "Ward 1",
-    "info": { "sector": "area51", "revenue": 10, "totalrevenue": 2 }
+    "info": { "sector": "Rajwada", "revenue": 10, "totalrevenue": 2 }
   },
   {
     "coords": [22.72149611458743, 75.84826745653889],
@@ -21,12 +21,12 @@
     "coords": [22.740168980449706, 75.85560745872762],
     "intensity": 0.53,
     "name": "Ward 4",
-    "info": { "sector": "abcd", "revenue": 40, "totalrevenue": 5 }
+    "info": { "sector": "Bangana", "revenue": 40, "totalrevenue": 5 }
   },
   {
     "coords": [22.737002590248636, 75.9220020943885],
     "intensity": 0.53,
     "name": "Ward 5",
-    "info": { "sector": "f", "revenue": 50, "totalrevenue": 5 }
+    "info": { "sector": "Bhawarkua", "revenue": 50, "totalrevenue": 5 }
   }
 ]
