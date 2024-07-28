@@ -44,6 +44,8 @@ export default function Navbar() {
                             <li className="text-black"><Link to="/view-receipts">View Receipts</Link></li>
                             <li className="text-black"><Link to="/payments">Payments</Link></li>
                             <li className="text-black"><Link to="/AboutPage">About Page</Link></li>
+                            <li className="text-black"><Link to="/admin">Admin Dashboard</Link></li>
+
                         </ul>
                     </div>
                 </div>
