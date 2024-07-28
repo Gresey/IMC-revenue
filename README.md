@@ -1,4 +1,4 @@
-## Revenue Collection and Management for Municipal Corporation of indore 
+# Revenue Collection and Management for Municipal Corporation of indore 
 
 ## Problem Statement:
   Develop a robust revenue management system for the municipal corporation’s revenue department to enhance the efficiency and accuracy of revenue collection and management.
@@ -22,7 +22,7 @@
     - Provides real-time insights into revenue collection from various sources (property tax, water tax, garbage collection tax, etc.).
     - Automates tax assessments and sends notifications to citizens regarding their tax obligations.
 
-      <img src="https://github.com/user-attachments/assets/868ba40b-adeb-410b-8107-1cf8d6ba8a0c" alt="Admin Dashboard" height="400" width="600">
+      <img src="https://github.com/user-attachments/assets/868ba40b-adeb-410b-8107-1cf8d6ba8a0c" alt="Admin Dashboard" height="250" width="600">
 
 3. **UTI ID Integration**:
     - One ID for all tax payments simplifies the process & simplifies record-keeping and reporting.
@@ -42,7 +42,7 @@
 
 ## Flowchart
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/ed2dbe7c-e3bd-4c16-b15c-d4dc9ec46c76" alt="Flowchart" height="300" width="500">
+    <img src="https://github.com/user-attachments/assets/ed2dbe7c-e3bd-4c16-b15c-d4dc9ec46c76" alt="Flowchart" height="300" width="450">
 </p>
   
 ## Modules
@@ -75,11 +75,11 @@
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-repo/revenue-management-system.git
+    git clone https://github.com/mukundsolanki/IMC-revenue.git
     ```
 2. Navigate to the project directory:
     ```bash
-    cd revenue-management-system
+    cd IMC-revenue
     ```
 3. Install dependencies:
     ```bash
@@ -98,10 +98,6 @@
 5. Push to the branch (`git push origin feature-branch`).
 6. Create a pull request.
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Contact
-For any inquiries or support, please contact [support@example.com](mailto:support@example.com).
     
  
