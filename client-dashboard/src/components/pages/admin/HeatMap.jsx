@@ -47,16 +47,46 @@ class HeatMap extends Component {
           [22.7196, 75.8577],
         ],
         [
+          [22.718700142069206, 75.89280621094791],
+          [22.718446560203155, 75.8995792314345],
+          [22.707370491949273, 75.9051179813597],
+          [22.709308868587804, 75.89567205125473],
+          [22.718700142069206, 75.89280621094791],
+        ],
+        [
+          [22.67473906133729, 75.84639697609352],
+          [22.67513474485018, 75.85528473760137],
+          [22.66666686849655, 75.84978892372213],
+          [22.66880367165445, 75.83901197619328],
+          [22.67473906133729, 75.84639697609352],
+        ],
+        [
+          [22.720384794955358, 75.83424463632721],
+          [22.718921243772908, 75.8343949124879],
+          [22.720048575122743, 75.83705694733571],
+          [22.720384794955358, 75.83424463632721],
+        ],
+        [
           [22.722644069652173, 75.84729175220465],
           [22.719665304253958, 75.84695920255449],
           [22.721852377534788, 75.85196812101357],
           [22.722644069652173, 75.84729175220465],
         ],
         [
-          [22.734390263126222, 75.85011628242569],
-          [22.743315508056973, 75.85409187506565],
-          [22.7417521480478, 75.86363927110455],
-          [22.734390263126222, 75.85011628242569],
+          [22.761972629034513, 75.88150578156998],
+          [22.75888822512058, 75.89764890788177],
+          [22.751414188299158, 75.89524461247365],
+          [22.754894213990834, 75.87957375847417],
+          [22.757229038410788, 75.88117813450835],
+          [22.761972629034513, 75.88150578156998],
+        ],
+        [
+          [22.738990986051313, 75.8811275179785],
+          [22.73313748366906, 75.88971428729329],
+          [22.72744194354972, 75.88765346265774],
+          [22.72665087755278, 75.88138512105797],
+          [22.733532998480584, 75.8757178533102],
+          [22.738990986051313, 75.8811275179785],
         ],
         [
           [22.697891628435425, 75.86525052144249],
@@ -132,42 +162,84 @@ class HeatMap extends Component {
     return null;
   };
 
+  // updateHeatLayer = (heatData) => {
+  //   if (this.map && heatData.length > 0) {
+  //     if (this.heatLayerRef) {
+  //       this.heatLayerRef.setLatLngs(
+  //         heatData.map((ward) => [
+  //           ward.coords[0],
+  //           ward.coords[1],
+  //           ward.intensity,
+  //         ])
+  //       );
+  //     } else {
+  //       this.heatLayerRef = L.heatLayer(
+  //         heatData.map((ward) => [
+  //           ward.coords[0],
+  //           ward.coords[1],
+  //           ward.intensity,
+  //         ]),
+  //         {
+  //           radius: 100,
+  //           blur: 15,
+  //           maxZoom: 17,
+  //         }
+  //       ).addTo(this.map);
+  //     }
+  //   }
+  // };
   updateHeatLayer = (heatData) => {
     if (this.map && heatData.length > 0) {
+      // Group wards by gradient
+      const gradientGroups = heatData.reduce((groups, ward) => {
+        const gradientKey = JSON.stringify(ward.gradient);
+        if (!groups[gradientKey]) {
+          groups[gradientKey] = [];
+        }
+        groups[gradientKey].push(ward);
+        return groups;
+      }, {});
+
+      // Clear existing layers
       if (this.heatLayerRef) {
-        this.heatLayerRef.setLatLngs(
-          heatData.map((ward) => [
-            ward.coords[0],
-            ward.coords[1],
-            ward.intensity,
-          ])
-        );
+        this.heatLayerRef.forEach((layer) => this.map.removeLayer(layer));
       } else {
-        this.heatLayerRef = L.heatLayer(
-          heatData.map((ward) => [
-            ward.coords[0],
-            ward.coords[1],
-            ward.intensity,
-          ]),
-          {
-            radius: 100,
-            blur: 15,
-            maxZoom: 17,
-          }
-        ).addTo(this.map);
+        this.heatLayerRef = [];
+      }
+
+      // Create and add new heatmap layers
+      for (const [gradientKey, wards] of Object.entries(gradientGroups)) {
+        const gradient = JSON.parse(gradientKey);
+        const heatPoints = wards.map((ward) => [
+          ward.coords[0],
+          ward.coords[1],
+          ward.intensity,
+        ]);
+
+        const heatLayer = L.heatLayer(heatPoints, {
+          radius: 100,
+          blur: 15,
+          maxZoom: 17,
+          gradient: gradient,
+        }).addTo(this.map);
+
+        this.heatLayerRef.push(heatLayer);
       }
     }
   };
 
   postWardNumber = async (data) => {
     try {
-      const response = await fetch("https://9d70-2401-4900-51fd-1774-893d-3551-b3fb-d590.ngrok-free.app/postWard", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        "https://9d70-2401-4900-51fd-1774-893d-3551-b3fb-d590.ngrok-free.app/postWard",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);
       }
@@ -192,7 +264,6 @@ class HeatMap extends Component {
     }
   };
 
-
   render() {
     return (
       <div className="card bg-base-100 shadow-xl p-4">
@@ -202,7 +273,10 @@ class HeatMap extends Component {
           id="map"
           style={{ height: "400px", width: "100%" }}
         />
-        <button onClick={this.handleButtonClick} className="btn bg-purple-500 text-white text-s py-1 px-2 mt-2 rounded">
+        <button
+          onClick={this.handleButtonClick}
+          className="btn bg-purple-500 text-white text-s py-1 px-2 mt-2 rounded"
+        >
           Post Ward Number
         </button>
       </div>
