@@ -13,9 +13,7 @@
     - Sends reminders and notifications for upcoming payment deadlines, overdue taxes, and other important updates.
     - We create on Demand storage for Documents.
   
-      <p align="center">
-          <img src="https://github.com/user-attachments/assets/37e0afad-695d-4c65-9b84-b0a065f1a6c0" alt="WhatsApp Bot" height="400" width="200">
-      </p>
+      [WhatsApp BOT](https://youtu.be/D9fMaio6qqg)
 
 2. **ADMIN Dashboard**:
     - Heatmap visualization of tax collection efficiency.
