@@ -58,6 +58,20 @@
 4. **User Interface**:
     - Citizen portal for tax information access and payments.
     - Admin dashboard for monitoring and management.
+## Screens
+![image](https://github.com/user-attachments/assets/ef275d79-9adb-4e6e-995c-57e005b108f7)
+![image](https://github.com/user-attachments/assets/e3454df6-68fa-4e31-8037-78fb25f75db0)
+
+
+![Screenshot 2024-07-28 094412](https://github.com/user-attachments/assets/9f14f8af-a242-43f4-8fc4-063e283a4885)
+![Screenshot 2024-07-28 094311](https://github.com/user-attachments/assets/3ba6d3b9-3663-48c0-9d27-920d649dc40f)
+![Screenshot 2024-07-28 094443](https://github.com/user-attachments/assets/e4ecef41-7c23-43c6-bd6f-6981109f613c)
+![image](https://github.com/user-attachments/assets/4f2f9378-194e-4055-9239-27034728a63d)
+
+![image](https://github.com/user-attachments/assets/21f85471-85ba-43db-a552-6fe613db6e3f)
+
+
+
 
 ## Usage
 - **Admin Dashboard**: 
