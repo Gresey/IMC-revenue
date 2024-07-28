@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
     "firebase": "^10.12.4",
+    "jsdf": "^0.3.2",
     "jspdf": "^2.5.1",
     "leaflet": "^1.9.4",
     "leaflet.heat": "^0.2.0",

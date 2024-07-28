@@ -82,12 +82,12 @@ export default function WhatsappRegistration() {
   };
 
   return (
-    <div className="min-h-screen  flex bg-gradient-to-br from-purple-400 via-purple-300 to-blue-400 text-white items-center justify-center">
+    <div className="min-h-screen  flex bg-gradient-to-br from-purple-400 via-purple-300 to-blue-400 text-black items-center justify-center">
       <div className="card bg-base-100 w-full max-w-md shadow-2xl ">
         <form className="card-body">
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Name</span>
+              <span className="label-text ">Name</span>
             </label>
             <input
               type="text"
@@ -113,7 +113,7 @@ export default function WhatsappRegistration() {
           </div>
           {!isOtpSent ? (
             <div className="form-control mt-6">
-              <button className="btn btn-primary" onClick={handleGetOtp}>
+              <button className="btn bg-purple-500" onClick={handleGetOtp}>
                 Get OTP
               </button>
             </div>

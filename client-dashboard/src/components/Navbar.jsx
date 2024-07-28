@@ -15,7 +15,7 @@ export default function Navbar() {
 
     return (
         <div>
-            <div className="navbar bg-gradient-to-br from-purple-400 via-purple-210 to-blue-400 text-white h-16 flex items-center">
+            <div className="navbar h-16 flex items-center shadow-md shadow-gray-600">
                 <div className="navbar-start flex items-center">
                     <img 
                         src={logo} 
@@ -50,7 +50,7 @@ export default function Navbar() {
                     </div>
                 </div>
                 <div className="navbar-center">
-                    <Link to="/" className="btn btn-ghost text-xl">IMC Indore</Link>
+                    <Link to="/" className="btn btn-ghost text-xl text-purple-600">IMC Indore</Link>
                 </div>
                 <div className="navbar-end flex items-center">
                     {user ? (
@@ -60,9 +60,9 @@ export default function Navbar() {
                                 alt={user.displayName}
                                 className="w-8 h-8 rounded-full mr-2"
                             />
-                            <span className="mr-4">{user.displayName}</span>
+                            <span className="mr-4 ">{user.displayName}</span>
                             <button
-                                className="btn btn-ghost"
+                                className="btn text-purple-600 btn-ghost"
                                 onClick={() => auth.signOut()}
                             >
                                 Logout

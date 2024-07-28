@@ -18,10 +18,10 @@ export default function Login() {
 
     return (
         <div className="hero bg-base-200 min-h-screen flex items-center justify-center">
-            <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
+            <div className="card bg-base-100  w-full max-w-sm shadow-2xl">
                 <div className="card-body">
-                    <h2 className="card-title">Login</h2>
-                    <button className="btn btn-primary" onClick={handleGoogleLogin}>Login with Google</button>
+                    <h2 className="card-title ">Login</h2>
+                    <button className="btn bg-purple-400" onClick={handleGoogleLogin}>Login with Google</button>
                 </div>
             </div>
         </div>
